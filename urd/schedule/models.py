@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 class User(models.Model):
     first_name = models.CharField(max_length=100, default=' ')
@@ -12,10 +13,16 @@ class User(models.Model):
     photo = models.FilePathField(blank=True)
 
 
+    def __str__(self):
+        name = self.first_name + '  ' + self.last_name
+        return name
+
+
 class Shift(models.Model):
-    date = models.DateField
-    start_time = models.TimeField
-    end_time = models.TimeField
-    location = models.CharField(max_length=10)
-    length = models.DurationField
+    day = models.CharField(max_length=20, choices=[('Sunday', 'Sunday'), ('Monday', 'Monday'), ('Tuesday', 'Tuesday'), ('Wednesday', 'Wednesday'), ('Thursday', 'Thursday'), ('Friday', 'Friday'), ('Saturday', 'Saturday')])
+    date = models.DateField(null=True)
+    start_time = models.TimeField(blank=True, null=True)
+    end_time = models.TimeField(blank=True, null=True)
+    location = models.CharField(max_length=20, choices=[('O1', 'O1'), ('O2', 'O2'), ('O3', 'O3')])
+    length = models.DurationField(blank=True, null=True)
     employee = models.ForeignKey(User, on_delete=models.CASCADE)
