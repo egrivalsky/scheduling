@@ -16,7 +16,6 @@ def index(request):
         'today': day
     }
     print(day_name[datetime.date.weekday(today)])
-    # return HttpResponse("Hello, world. You're at the SCHEDULING index.")
     return render(request, 'index.html', context=context)
 
 def emp_sched(emp_name):

@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Scheduling</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <h1>HELLO EVERYBODY</h1>
-        <h2>Today is {% today %}</h2>
-        <script src="" async defer></script>
-    </body>
-</html>
+{% extends 'base_index.html' %}
+{% load static %}
+{% block content %}
+<h1>HELLO EVERYBODY</h1>
+<h2>Today is {{ today }}</h2>
+<main>
+    <div id="week">
+        <div id="6">"Sunday"</div>
+        <div id="0">"Monday"</div>
+        <div id="1">"Tuesday"</div>
+        <div id="2">"Wednesday"</div>
+        <div id="3">"Thursday"</div>
+        <div id="4">"Friday"</div>
+        <div id="5">"Saturday"</div>
+    </div>
+</main>
+{% endblock %}
