@@ -13,7 +13,8 @@ def index(request):
     day_name = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     day = day_name[datetime.date.weekday(today)]
     context = {
-        'today': day
+        'today': day,
+        'start_date': ''
     }
     print(day_name[datetime.date.weekday(today)])
     return render(request, 'index.html', context=context)
