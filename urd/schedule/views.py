@@ -11,8 +11,13 @@ def index(request):
     month = calendar.monthdatescalendar(2022, 6)
     today = datetime.date.today()
     day_name = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    day = day_name[datetime.date.weekday(today)]
+    context = {
+        'today': day,
+        'start_date': ''
+    }
     print(day_name[datetime.date.weekday(today)])
-    return HttpResponse("Hello, world. You're at the SCHEDULING index.")
+    return render(request, 'index.html', context=context)
 
 def emp_sched(emp_name):
     emp_shifts = Shift.objects.filter(id=5)
