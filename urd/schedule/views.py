@@ -6,17 +6,35 @@ import calendar
 
 calendar = calendar.TextCalendar(firstweekday=6)
 
+today = datetime.date.today()
+day_name = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+idx = (datetime.date.weekday(today) + 1) % 7
+day = [datetime.date.today(), day_name[idx]]
+
+sunday = today - datetime.timedelta(idx)
+
+this_week = {
+    'today': today,
+    'sunday': sunday,
+    'monday': sunday + datetime.timedelta(1),
+    'tuesday': sunday + datetime.timedelta(2),
+    'wednesday': sunday + datetime.timedelta(3),
+    'thursday': sunday + datetime.timedelta(4),
+    'friday': sunday + datetime.timedelta(5),
+    'saturday': sunday + datetime.timedelta(6)
+
+}
+
 def index(request):
-    # month = calendar.formatmonth(2022, 6, w=0, l=0)
-    month = calendar.monthdatescalendar(2022, 6)
-    today = datetime.date.today()
-    day_name = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    day = day_name[datetime.date.weekday(today)]
+    shifts = Shift.objects.all()
+    for shift in shifts:
+        print(shifts.date)
+        print(shifts.employee) 
     context = {
-        'today': day,
-        'start_date': ''
+        'today': day[0],
+        'this_week': this_week
     }
-    print(day_name[datetime.date.weekday(today)])
+    print(this_week['monday'])
     return render(request, 'index.html', context=context)
 
 def emp_sched(emp_name):
