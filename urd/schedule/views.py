@@ -30,20 +30,26 @@ def index(request):
 
     db = Shift
     for day in day_name:
-        day_sched = db.objects.filter(weekday=day)
-        week_sched[day] = day_sched
-    for n in week_sched.keys():
-        week_data = (list(week_sched[n].values()))
+        shifts = db.objects.filter(weekday=day)
+        for n in range(len(shifts)):
+            week_sched[day] = shifts[n].shift_dict().values()
+            # print(shifts[n].shift_dict)
+    print(week_sched)
+    # for day in day_name:
+    #     day_sched = db.objects.filter(weekday=day)
+    #     week_sched[day] = day_sched.shift_dict()
+    # for n in week_sched.keys():
+    #     week_data = (list(week_sched[n].values()))
         
-    sunday_shifts = list(week_sched['Sunday'].values())
-    for i in sunday_shifts:
+    # sunday_shifts = list(week_sched['Sunday'].values())
+    # for i in sunday_shifts:
 
-        print('one more')
+    #     print('one more')
 
     context = {
         'today': day[0],
         'this_week': this_week,
-        'sunday_shifts': sunday_shifts,
+        # 'sunday_shifts': sunday_shifts,
     #     'monday_shifts': monday_shifts,
     #     'tuesday_shifts': tuesday_shifts,
     #     'wednesday_shifts': wednesday_shifts,

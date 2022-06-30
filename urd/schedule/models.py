@@ -33,6 +33,14 @@ class Shift(models.Model):
     end_time = models.TimeField(blank=True, null=True)
     location = models.CharField(max_length=20, choices=[('O1', 'O1'), ('O2', 'O2'), ('O3', 'O3')])
 
-    # def __str__(self):
-    #     shift = '{}, {}, {}, {}'.format(self.weekday, self.start_time, self.end_time, self.location)
-    #     return shift
+    def __str__(self):
+        shift = '{}, {}, {}, {}'.format(self.weekday, self.start_time, self.end_time, self.location)
+        return shift
+
+    def shift_dict(self):
+        shift_dict = {}
+        shift_dict['weekday'] = self.weekday
+        shift_dict['start_time'] = self.start_time
+        shift_dict['end_time'] = self.end_time
+        shift_dict['location'] = self.location
+        return shift_dict
