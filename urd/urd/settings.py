@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,8 +77,12 @@ WSGI_APPLICATION = 'urd.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'urd',
+        'USER': 'urd_user',
+        'PASSWORD': os.environ["URD_DATABASE_PASSWORD"],
+        'HOST': 'urd.cyaepuuh8uic.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 

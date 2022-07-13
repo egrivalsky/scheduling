@@ -1,6 +1,7 @@
+import os
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import User, Shift, Schedule
+from .models import Employee, Shift, Schedule, Shop
 import datetime
 import calendar
 
@@ -26,15 +27,15 @@ this_week = {
 }
 
 def index(request):
-    week_sched = {}
+    week_sched = {'hello': 'hello'}
 
     db = Shift
     for day in day_name:
         shifts = db.objects.filter(weekday=day)
-        for n in range(len(shifts)):
-            week_sched[day] = shifts[n].shift_dict().values()
+        # for n in range(len(shifts)):
+        #     week_sched[day] = shifts[n].shift_dict().values()
             # print(shifts[n].shift_dict)
-    print(week_sched)
+    # print(week_sched)
     # for day in day_name:
     #     day_sched = db.objects.filter(weekday=day)
     #     week_sched[day] = day_sched.shift_dict()
@@ -47,7 +48,7 @@ def index(request):
     #     print('one more')
 
     context = {
-        'today': day[0],
+        'today': day,
         'this_week': this_week,
         # 'sunday_shifts': sunday_shifts,
     #     'monday_shifts': monday_shifts,
