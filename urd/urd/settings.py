@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from . import urd_secrets
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,12 +76,17 @@ WSGI_APPLICATION = 'urd.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+if 'URD_DATABASE_PASSWORD' in os.environ:
+    password = os.environ["URD_DATABASE_PASSWORD"]
+else:
+    password = urd_secrets.URD_DATABASE_PASSWORD()
+    
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'urd',
         'USER': 'urd_user',
-        'PASSWORD': os.environ["URD_DATABASE_PASSWORD"],
+        'PASSWORD': password,
         'HOST': 'urd.cyaepuuh8uic.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
     }
