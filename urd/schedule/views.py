@@ -30,8 +30,8 @@ def index(request):
     week_sched = {'hello': 'hello'}
 
     db = Shift
-    for day in day_name:
-        shifts = db.objects.filter(weekday=day)
+    # for day in day_name:
+    #     shifts = db.objects.filter(weekday=day)
         # for n in range(len(shifts)):
         #     week_sched[day] = shifts[n].shift_dict().values()
             # print(shifts[n].shift_dict)
@@ -48,7 +48,7 @@ def index(request):
     #     print('one more')
 
     context = {
-        'today': day,
+        'today': day[1],
         'this_week': this_week,
         # 'sunday_shifts': sunday_shifts,
     #     'monday_shifts': monday_shifts,
