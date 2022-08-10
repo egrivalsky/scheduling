@@ -2,21 +2,16 @@
 
 {% block content %}
 <h1>HELLO EVERYBODY</h1>
-<h2>Today is {{ today }}</h2>
+<h2>Today is {{ today }}, {{ this_week.wednesday }}</h2>
 <main>
-    <div id="week">
-        <div id="sunday" class="day"> 
-            <h4>Sunday</h4>
-
-             <p>{{ this_week.sunday }}</p>
-
-        </div>
-        <div id="monday" class="day"> <h4>Monday</h4><p>{{ this_week.monday }}</p></div>
-        <div id="tuesday" class="day"> <h4>Tuesday</h4><p>{{ this_week.tuesday }}</p></div>
-        <div id="wednesday" class="day"> <h4>Wednesday</h4><p>{{ this_week.wednesday }}</p></div>
-        <div id="thursday" class="day"> <h4>Thursday</h4><p>{{ this_week.thursday }}</p></div>
-        <div id="friday" class="day"> <h4>Friday</h4><p>{{ this_week.friday }}</p></div>
-        <div id="saturday" class="day"> <h4>Saturday</h4><p>{{ this_week.saturday }}</p></div>
+    <div class="week">
+        <div id="sunday" class="day"><div class="day-heading"><h4>Sunday</h4><p>{{ this_week.sunday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
+        <div id="monday" class="day"><div class="day-heading"><h4>Monday</h4><p>{{ this_week.monday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
+        <div id="tuesday" class="day"><div class="day-heading"><h4>Tuesday</h4><p>{{ this_week.tuesday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
+        <div id="wednesday" class="day"><div class="day-heading"><h4>Wednesday</h4><p>{{ this_week.wednesday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
+        <div id="thursday" class="day"><div class="day-heading"><h4>Thursday</h4><p>{{ this_week.thursday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
+        <div id="friday" class="day"><div class="day-heading"><h4>Friday</h4><p>{{ this_week.friday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
+        <div id="saturday" class="day"><div class="day-heading"><h4>Saturday</h4><p>{{ this_week.saturday }}</p></div><div class="day-sched">[schedule goes here]</div></div>
     </div>
 </main>
 {% endblock %}

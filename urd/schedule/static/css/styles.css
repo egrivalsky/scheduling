@@ -1,19 +1,38 @@
-#week {
-    width: '95%';
+body {
+
+    background-color: antiquewhite;
+}
+h4 {
+    margin: 0 0;
+}
+.week {
+    width: 85%;
+    height: 500px;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    padding: 4px;
+    justify-content: center;
+    align-items: center;
     border: 5px solid black;
     border-radius: 25px;
+    /* padding-left: 100px;
+    padding-right: 100px; */
 }
 .day {
-    padding: 15px;
-    height: 120px;
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    padding:1%;
     border-top: 2px solid black;
     border-bottom: 2px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
+}
+
+.day-heading {
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:flex-start;
 }
 
 main {
